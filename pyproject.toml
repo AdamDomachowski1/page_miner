@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "page-miner"
+version = "1.0.0"
+description = "Fetch a web page — or crawl a whole site — into clean Markdown, ready to use as AI context."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "httpx",
+    "beautifulsoup4",
+    "lxml",
+    "markdownify",
+]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[project.scripts]
+page-miner = "page_miner.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["page_miner*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
